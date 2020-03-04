@@ -3,9 +3,20 @@ public class Convertitore
     private int numeroDaConvertire;
     private String numeroConvertito;
 
-    public Convertitore(int numeroDaConvertire)
+    public Convertitore(int numeroDaConvertire) throws IllegalArgumentException
     {
-        setNumeroDaConvertire(numeroDaConvertire);
+        try
+        {
+            if(numeroDaConvertire<0)
+            {
+                throw new IllegalArgumentException();
+            }
+            setNumeroDaConvertire(numeroDaConvertire);
+        }
+        catch(IllegalArgumentException e)
+        {
+            System.out.println("Il numero da convertire non può essere minore di 0");
+        }
     }
 
     public int getNumeroDaConvertire() {
